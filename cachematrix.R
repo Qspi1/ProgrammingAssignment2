@@ -1,5 +1,9 @@
 
-#Calculates the inverse of a matrix then stores it
+# 1.sets matrix
+# 2.gets matrix
+# 3.sets inverse
+# 4.gets inverse
+
 makeCacheMatrix <- function(x = matrix()) {
     inv = NULL
     set = function(y){
