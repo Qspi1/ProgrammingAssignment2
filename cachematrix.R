@@ -1,8 +1,11 @@
+# Aydin Deniz Kadioglu
 
+# makeCacheMatrix returns a list that comprises the following functions:
 # 1.sets matrix
 # 2.gets matrix
 # 3.sets inverse
 # 4.gets inverse
+
 
 makeCacheMatrix <- function(x = matrix()) {
     inv = NULL
@@ -16,7 +19,8 @@ makeCacheMatrix <- function(x = matrix()) {
     list(set = set, get = get,set_inv = set_inv,get_inv = get_inv)
 }
 
-#Checks the matrix if its inverse is already calculated, else calculates it
+# cacheSolve first check the cache if the inverse is already existing, then returns that
+# if inverse is not available, calls the inverse calculator function, then returns the result
 cacheSolve <- function(x,...){
     inv = x$get_inv()
     if(!is.null(inv)){
@@ -29,6 +33,7 @@ cacheSolve <- function(x,...){
     return(inv)
 }
 
-#For example, I used tmp = makeCacheMatrix(mat) for if matrix got the inverse of it
-#Then ı check it with mat1 = cacheSolve(tmp), mat1 %*% mat
-
+# For instance, mat <- matrix(nrow = 3,ncol = 3,data = rnorm(9)) => tmp = makeCacheMatrix(mat)
+# Then call cacheSolve(tmp)
+# First call of cacheSolve(tmp) clearly takes more time, and the second time it returns the inverse
+# from the cache, so takes much less.
